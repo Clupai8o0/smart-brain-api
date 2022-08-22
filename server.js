@@ -14,8 +14,8 @@ const db = knex({
   client: 'pg',
   connection: {
     host : '127.0.0.1',
-    user : 'aneagoie',
-    password : '',
+    user : 'postgres',
+    password : '123',
     database : 'smart-brain'
   }
 });
@@ -23,7 +23,7 @@ const db = knex({
 const app = express();
 
 app.use(cors())
-app.use(express.json()); // latest version of exressJS now comes with Body-Parser!
+app.use(express.json()); // latest version of expressJS now comes with Body-Parser!
 
 app.get('/', (req, res)=> { res.send(db.users) })
 app.post('/signin', signin.handleSignin(db, bcrypt))
